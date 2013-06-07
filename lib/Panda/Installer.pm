@@ -26,7 +26,7 @@ method destdir {
 
 sub copy($src, $dest) {
     note "Copying $src to $dest";
-    $src.IO.copy($dest);
+    $src.Str.path.copy($dest);
 }
 
 method install($from, $to? is copy) {

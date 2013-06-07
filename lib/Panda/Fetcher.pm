@@ -28,7 +28,7 @@ sub local-fetch($from, $to) {
         my $where = "$to/$d";
         mkpath $where;
         next if $_.IO ~~ :d;
-        $_.IO.copy("$where/{$_.name}");
+        $_.path.copy("$where/{$_.name}");
     }
 }
 

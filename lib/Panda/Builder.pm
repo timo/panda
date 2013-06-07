@@ -73,7 +73,7 @@ method build($where) {
         my @tobuild = build-order(@files);
         withp6lib {
             for @tobuild -> $file {
-                $file.IO.copy: "blib/{$file.dir}/{$file.name}";
+                $file.Str.path.copy: "blib/{$file.dir}/{$file.name}";
                 next unless $file ~~ /\.pm6?$/;
                 my $dest = "blib/{$file.dir}/"
                          ~ "{$file.name.subst(/\.pm6?$/, '.pir')}";
