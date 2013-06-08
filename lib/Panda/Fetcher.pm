@@ -17,7 +17,7 @@ method fetch($from, $to) {
 }
 
 sub git-fetch($from, $to) {
-    shell "git clone -q $from \"$to\""
+    shell "git clone $from \"$to\""
           and die "Failed cloning git repository '$from'"
 }
 
@@ -28,7 +28,7 @@ sub local-fetch($from, $to) {
         my $where = "$to/$d";
         mkpath $where;
         next if $_.IO ~~ :d;
-        $_.path.copy("$where/{$_.name}");
+        $_.Str.path.copy("$where/{$_.name}");
     }
 }
 
