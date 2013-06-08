@@ -17,7 +17,7 @@ method fetch($from, $to) {
 }
 
 sub git-fetch($from, $to) {
-    shell "git clone $from \"$to\""
+    shell "git clone -q $from \"$to\""
           and die "Failed cloning git repository '$from'"
 }
 
